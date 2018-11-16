@@ -1,25 +1,32 @@
 //always P1
 
 class Bot {
+
     makeMove(gamestate) {
-            const standardMoves = ['R','P','S'];
-            const random = standardMoves[Math.floor(Math.random() * standardMoves.length)];
 
-
-
-        gamestate.rounds.forEach(function(round) {
-            if(rounds ) {
-                let move = 'W';
-                return move;
-            } else if (round === 4) {
-                let move = 'D';
-                return move;
-            } else {
-                let move = random;
-                return move;                
+        let dynamiteArray = gamestate.rounds.filter(function(round){
+            if(round.p1 === "D") {
+                return true;
             }
         });
-            return random;
+
+        let dynamite = dynamiteArray.length;
+
+        let move;
+    
+        if(dynamite < 100) {
+            let standardMoves = ['R','P','S','D'];
+            let moves = standardMoves[Math.floor(Math.random() * standardMoves.length)];
+            // console.log('Dynamite ' + moves);
+            move = moves;
+        } else {
+            let standardMoves = ['R','P','S'];
+            let moves = standardMoves[Math.floor(Math.random() * standardMoves.length)];
+            // console.log('NoDynamite ' + moves);
+            move = moves;
+        }
+        // console.log(move)
+        return move;
     }
 }
 

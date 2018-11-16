@@ -1,7 +1,9 @@
 class Bot {
     makeMove(gamestate) {
 
-        return 'R';
+        let standardMoves = ['R','P','S'];
+        let moves = standardMoves[Math.floor(Math.random() * standardMoves.length)];
+        return moves;
             
 }
 }
